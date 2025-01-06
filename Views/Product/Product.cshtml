@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Product";
+}
+
+<!Doctype html>
+<html>
+<head>
+    <title>Product</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Product Record</h2>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#proModal" onclick="clearTextBox();">Add New Product</button><br /><br />
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th hidden>ID</th>
+                    <th>Product Code</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade" id="proModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Add Product</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="proid">ID</label>
+                            <input type="text" class="form-control" id="proid" placeholder="Id" disabled="disabled" />
+                        </div>
+                        <div class="form-group">
+                            <label for="procode">Product Code</label>
+                            <input type="text" class="form-control" id="procode" placeholder="Enter Product Code" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="proname">Product Name</label>
+                            <input type="text" class="form-control" id="proname" placeholder="Enter Product Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="proqty">Quantity</label>
+                            <input type="number" class="form-control" id="proqty" placeholder="Enter Quantity" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="prounitprice">Unit Price</label>
+                            <input type="number" class="form-control" id="prounitprice" placeholder="Enter Unit Price" required />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                    <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/Product.js"></script>
+</body>
+</html>

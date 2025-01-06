@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="orderingdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+    </Key>
+    <Property Name="OrderNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="DiscountPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="suborder">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+    </Key>
+    <Property Name="OrderNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="ItemTotal" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="orderingdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="orders" EntityType="Self.order" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="suborders" EntityType="Self.suborder" />
+  </EntityContainer>
+</Schema>

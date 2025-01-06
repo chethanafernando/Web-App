@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebApp.customer>  
+@{
+    ViewBag.Title = "Customer";
+}
+
+<!Doctype html>
+<html>
+    <head>
+        <title>Customer</title>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Customer Record</h2>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cusModal" onclick="clearTextBox();">Add New Customer</button><br /><br />
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th hidden>ID</th>
+                        <th>Customer Code</th>
+                        <th>Customer Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="modal fade" id="cusModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Add Customer</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="cusid">ID</label>
+                                <input type="text" class="form-control" id="cusid" placeholder="Id" disabled="disabled" />
+                            </div>
+                            <div class="form-group">
+                                <label for="cuscode">Customer Code</label>
+                                <input type="text" class="form-control" id="cuscode" placeholder="Enter Customer Code" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="cusname">Customer Name</label>
+                                <input type="text" class="form-control" id="cusname" placeholder="Enter Customer Name" required/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                        <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="~/Scripts/jquery-3.6.0.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <script src="~/Scripts/Customer.js"></script>
+    </body>
+</html>
